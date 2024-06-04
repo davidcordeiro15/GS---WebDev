@@ -10,7 +10,7 @@
 <body>
     <header>
         <h1>Oceano Protegido</h1>
-        <div class="cabecalho__logar"><a href="pages/login.html" class="cabecalho__logar">Logar ou cadastrar</a></div>
+        <div class="cabecalho__logar"><a href="pages/login.html" class="cabecalho__logar">Login ou cadastrar</a></div>
     </header>
 
     <section id="alerta">
@@ -19,13 +19,25 @@
         </div>
         <div>
             <ul class="alerta__inputs">
-                <li><input type="text" id="tituloDenuncia" placeholder="Qual será o título de sua denuncia?"></li>
-                <li><input type="text" id="dataDenuncia" placeholder="Qual a data da denúncia?"></li>
-                <li><input type="text" id="descricaoDenuncia" placeholder="Coloque uma descrição para sua denúncia"></li>
-                <li><input type="text"id="imagemDenuncia" placeholder="Coloque uma imagem da denúncia"></li>
+                <li> <h2>Digite um título para sua denúncia: </h2>
+                    <input type="text" id="tituloDenuncia" placeholder="Qual será o título de sua denuncia?">
+                </li>
+                <li>
+                    <h2>Coloque uma descrição para sua denúncia: </h2>
+                    <input type="text" id="descricaoDenuncia" placeholder="Coloque uma descrição para sua denúncia">
+                </li>
+                
+                <li>
+                    <h2 id="h2Imagem" >Coloque aqui as imagens da denúncia: </h2>
+                    <input type="file" name="file" id="imagemDenuncia">
+                </li>
             </ul>
+            <button id="btnCriar">Criar Denuncia</button>
         </div>
         
+        <div>
+            <ul id="listaDenuncias"></ul>
+        </div>
         
         
     </section>
@@ -38,7 +50,7 @@
         <p>instagram: <a href="">Oceano Protegido</a></p> 
         <p>© 2024 Global Solution FIAP. Todos os direitos reservados.</p>  
     </footer>
-    <script src="scripts/script.js"></script>
+    <script src="scripts/scriptIndex.js"></script>
 </body>
 </html>
 
