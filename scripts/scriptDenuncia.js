@@ -1,126 +1,121 @@
-const imagem1 = document.querySelector('#imagemDenuncia');
+const imagem1 = document.querySelector('#imagemDenuncia1');
 const imagem2 = document.querySelector('#imagemDenuncia2');
 const imagem3 = document.querySelector('#imagemDenuncia3');
 const h2Avatar = document.querySelector('#h2Imagem');
-const inputTitulo = document.querySelector('#tituloDenuncia')
-const inputDescricao = document.querySelector('#descricaoDenuncia')
-const listaDenuncias = document.querySelector('#listaDenuncias')
+const inputTitulo = document.querySelector('#tituloDenuncia');
+const inputDescricao = document.querySelector('#descricaoDenuncia');
+const listaDenuncias = document.querySelector('#listaDenuncias');
+const btnCriar = document.querySelector('#btnCriar');
+const date = new Date();
 
-const denuncias = [
-    /*{
-        titulo: ,
-        descricao: ,
-        imagem1: ,
-        imagem2: ,
-        imagem3: 
-    },*/
+const denuncias = [];
 
-]
-function imagens(imagens) {
-    let imagem = imagens 
+function criaImagem(imagem) {
     imagem.addEventListener('change', event => {
         const preview = document.querySelector('#preview-image');
-      
+
         if (preview) {
-          preview.remove();
+            preview.remove();
         }
-      
-        const reader = new FileReader;
-      
+
+        const reader = new FileReader();
+
         reader.onload = function(event) {
-          const previewImage = document.createElement('img');
-          previewImage.width = 115;
-          previewImage.height = 100;
-          previewImage.id = 'preview-image';
-          previewImage.src = event.target.result;
-          h2Avatar.insertAdjacentElement('afterend', previewImage);
+            const previewImage = document.createElement('img');
+            previewImage.width = 115;
+            previewImage.height = 100;
+            previewImage.id = 'preview-image';
+            previewImage.src = event.target.result;
+            h2Avatar.insertAdjacentElement('afterend', previewImage);
         }
-      
+
         reader.readAsDataURL(imagem.files[0]);
-      
-      })
-    
+    });
 }
 
+criaImagem(imagem1);
+criaImagem(imagem2);
+criaImagem(imagem3);
 
-
-
-btnCriar.addEventListener('click', function (infosDoEvento){
+btnCriar.addEventListener('click', function (infosDoEvento) {
     infosDoEvento.preventDefault();
-
     criarDenuncia();
+});
 
-
-})
-
-
-window.onload = renderizarNaTela();
-
-
+window.onload = renderizarNaTela;
 
 function criarDenuncia() {
-
-    //Pegar oq o usuário digitou 
+    //Pegar o que o usuário digitou
     let denuncia = {
-        titulo: inputTitulo.value, 
+        titulo: inputTitulo.value,
         descricao: inputDescricao.value,
-        imagem: imagem1.files[0]
+        imagem1: imagem1.files[0],
+        imagem2: imagem2.files[0],
+        imagem3: imagem3.files[0]
+    };
 
+    // Armazenando no array
+    denuncias.unshift(denuncia);
+
+    // Limpar os campos de input
+    inputTitulo.value = '';
+    inputDescricao.value = '';
+    imagem1.value = '';
+    imagem2.value = '';
+    imagem3.value = '';
+
+    // Remover a imagem de preview
+    const preview = document.querySelector('#preview-image');
+    if (preview) {
+        preview.remove();
     }
-    //Armazenando no array
-    denuncias.unshift(denuncia)
 
-    
-    
-    
-    
-    //atualizar o DOM
+    // Atualizar o DOM
     renderizarNaTela();
-
 }
 
-
 function renderizarNaTela() {
+    listaDenuncias.innerHTML = "";
 
-    listaDenuncias.innerHTML = ""
+    denuncias.forEach(denuncia => {
+        let novaDenuncia = document.createElement('li');
+        let imageUrl1 = URL.createObjectURL(denuncia.imagem1);
+        let imageUrl2 = URL.createObjectURL(denuncia.imagem2);
+        let imageUrl3 = URL.createObjectURL(denuncia.imagem3);
 
-    denuncias
-    .forEach(
-        denuncia => {
-            let novaDenuncia = document.createElement('li')
-            novaDenuncia.innerHTML = `
+        novaDenuncia.innerHTML = `
             <h1>${denuncia.titulo}</h1>
             <h3>${denuncia.descricao}</h3>
-            <img src="${imagem1.files[0]}" > 
-            <button onclick="editarFilme(${denuncias.indexOf(denuncia)})"> Editar </button>
-            <button onclick="apagarFilme(${denuncias.indexOf(denuncia)})"> Apagar </button>`
+            <img src="${imageUrl1}" width="700" height="500">
+            <img src="${imageUrl2}" width="700" height="500">
+            <img src="${imageUrl3}" width="700" height="500">
+            <button onclick="editarDenuncia(${denuncias.indexOf(denuncia)})"> Editar </button>
+            <button onclick="apagarDenuncia(${denuncias.indexOf(denuncia)})"> Apagar </button>
+            <p>${date}</p>`;
 
-
-            listaDenuncias.append(novaDenuncia)
-        }
-    )
-    
+        listaDenuncias.append(novaDenuncia);
+    });
 }
 
 function editarDenuncia(idDenuncia) {
-    //pegar as informações que a pessoa quer inserir
-    let titulomodificado = prompt('Digite o novo titulo',filmes[idDenuncia].titulo)
-    let descricaoModificado = prompt('Digite uma nova descrição',filmes[idDenuncia].descricao)
-    //mudar as informações
-    denuncias[idDenuncia].titulo = titulomodificado
-    denuncias[idDenuncia].descricao = diretorModificado 
-    //atualiza a tela
-    renderizarNaTela()
+    // Pegar as informações que a pessoa quer inserir
+    let titulomodificado = prompt('Digite o novo título', denuncias[idDenuncia].titulo);
+    let descricaoModificado = prompt('Digite uma nova descrição', denuncias[idDenuncia].descricao);
+
+    // Mudar as informações
+    denuncias[idDenuncia].titulo = titulomodificado;
+    denuncias[idDenuncia].descricao = descricaoModificado;
+
+    // Atualiza a tela
+    renderizarNaTela();
 }
 
 function apagarDenuncia(idDenuncia) {
-    //apagar filmes (o segundo número é a quantidade de elementos que será deletado)
-    denuncias.splice(idDenuncia,1)
-    //atualiza tela
-    renderizarNaTela()
-}
+    // Apagar a denúncia (o segundo número é a quantidade de elementos que será deletado)
+    denuncias.splice(idDenuncia, 1);
 
+    // Atualiza a tela
+    renderizarNaTela();
+}
 //para pegar a data da publicação
 
-const date = new Date()
-console.log(date)
