@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../styles/styles.css">
+    <title>Oceano Protegido</title>
+</head>
+<body>
+    <header>
+        <a href="../index.html"><h1>Oceano Protegido</h1></a>
+        <div class="cabecalho__logar"><a href="../index.html" class="cabecalho__logar">Login ou cadastrar</a></div>
+    </header>
+
+    <section id="alerta">
+        <div>
+            <h3>Insira aqui sua denúncia de poluição marinha!</h3>
+        </div>
+        <div>
+            <ul class="alerta__inputs">
+                <li> <h2>Digite um título para sua denúncia: </h2>
+                    <input type="text" id="tituloDenuncia" placeholder="Qual será o título de sua denuncia?">
+                </li>
+                <li>
+                    <h2>Coloque uma descrição para sua denúncia: </h2>
+                    <input type="text" id="descricaoDenuncia" placeholder="Coloque uma descrição para sua denúncia">
+                </li>
+                
+                <li>
+                    <h2 id="h2Imagem" >Coloque aqui as imagens da denúncia: </h2>
+                    <input type="file" name="file" id="imagemDenuncia">
+                </li>
+            </ul>
+            <button id="btnCriar">Criar Denuncia</button>
+        </div>
+        
+        <div>
+            <ul id="listaDenuncias"></ul>
+        </div>
+        
+        
+    </section>
+    <section id="alertas__anteriores">
+
+        </section>
+        <footer>
+        <h2>Contatos: </h2>
+        <p>email: oceanoprotegido@gmail.com</p>
+        <p>instagram: <a href="">Oceano Protegido</a></p> 
+        <p>© 2024 Global Solution FIAP. Todos os direitos reservados.</p>  
+    </footer>
+    <script src="../scripts/scriptDenuncia.js"></script>
+</body>
+</html>
+
