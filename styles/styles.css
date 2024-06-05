@@ -12,26 +12,37 @@ header {
     padding: 1em 0;
     display: flex;
     align-items: center;
-    justify-content: space-around;
-    
+    justify-content: space-between; /* Espaço igual entre os itens */
+    padding: 1em 2em; /* Aumentar padding para mais espaçamento */
 }
 
 .cabecalho__logar {
     text-decoration: none;
-    color: black;
-    background-color: lightblue;
+    color: #000000; /* Preto */
+    background-color: #add8e6; /* Azul claro */
     border-radius: 16px;
     padding: 0.7em;
+    transition: background-color 0.3s ease; /* Adiciona transição suave */
 }
 .cabecalho__logar:hover {
-    background-color: aquamarine;
+    background-color: #7fffd4; /* Aquamarine */
 }
-#alerta {
-    
 
+#alerta {
+    /* Adicionei uma estilização básica para #alerta */
+    background-color: #ffeb3b; /* Amarelo */
+    padding: 1em;
+    border-radius: 8px;
+    margin: 1em 0;
 }
+
 .alerta__inputs {
-   
+    /* Adicionei uma estilização básica para .alerta__inputs */
+    margin-top: 0.5em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5em; /* Espaçamento entre os elementos */
 }
 
 footer {
@@ -44,16 +55,20 @@ footer {
 footer ul {
     list-style: none;
     padding: 0;
+    margin: 0; /* Remove a margem padrão */
+    display: flex;
+    justify-content: center; /* Centraliza os itens do footer */
+    gap: 1em; /* Espaçamento entre os itens */
 }
 
 footer ul li {
     display: inline;
-    margin: 0 1em;
 }
 
 footer ul li a {
     color: #ffffff; 
     text-decoration: none;
+    transition: text-decoration 0.3s ease; /* Adiciona transição suave */
 }
 
 footer ul li a:hover {
