@@ -9,13 +9,15 @@
 </head>
 <body>
     <header>
-        <h1>Oceano Protegido</h1>
-        </a>
+
+        <a href="../index.html" class="cabecalho__titulo"><h1>Oceano Protegido</h1></a>
+        
+
     </header>
 
     <section id="alerta">
         <div>
-            <h3>Insira aqui sua denúncia de poluição marinha!</h3>
+            <h3 class="titulo__corpo">Insira aqui sua denúncia de poluição marinha!</h3>
         </div>
         <div>
             <ul class="alerta__inputs">
@@ -25,14 +27,16 @@
                 </li>
                 <li>
                     <h2>Coloque uma descrição para sua denúncia: </h2>
-                    <input type="text" id="descricaoDenuncia" placeholder="Coloque uma descrição para sua denúncia">
+                    <input type="text" id="descricaoDenuncia"  placeholder="Coloque uma descrição para sua denúncia">
                 </li>
                 <li>
-                    <h2 id="h2Imagem">Coloque aqui as imagens da denúncia: </h2>
-                    <h4>(As três imagens são obrigatórias)</h4>
-                    <input type="file" name="file" id="imagemDenuncia1" accept="image/*"> 
-                    <input type="file" name="file" id="imagemDenuncia2" accept="image/*">
-                    <input type="file" name="file" id="imagemDenuncia3" accept="image/*"> 
+
+                    <h2 id="h2Imagem" >Coloque aqui as imagens da denúncia: </h2>
+                    <h4 class="texto__imagem">(As três imagens são obrigatórias)</h4>
+                    <input type="file" name="file" id="imagemDenuncia1"> 
+                    <input type="file" name="file" id="imagemDenuncia2">
+                    <input type="file" name="file" id="imagemDenuncia3"> 
+
                 </li>
             </ul>
             <button id="btnCriar">Criar Denúncia</button>
@@ -48,8 +52,12 @@
 
     <footer>
         <h2>Contatos: </h2>
+
+
+
         <p>Email: <a href="mailto:oceanoprotegido@gmail.com">oceanoprotegido@gmail.com</a></p>
-        <p>Instagram: <a href="https://www.instagram.com/oceanoprotegido" target="_blank">Oceano Protegido</a></p>
+        <p>Instagram: <a href="https://www.instagram.com/oceanoprotegido" target="_blank"  class="rodape__texto">Oceano Protegido</a></p>
+
         <p>© 2024 Global Solution FIAP. Todos os direitos reservados.</p>  
     </footer>
     <script src="../scripts/scriptDenuncia.js"></script>
