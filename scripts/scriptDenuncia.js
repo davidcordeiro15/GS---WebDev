@@ -45,35 +45,54 @@ btnCriar.addEventListener('click', function (infosDoEvento) {
 window.onload = renderizarNaTela;
 
 function criarDenuncia() {
-    //Pegar o que o usuário digitou
-    let denuncia = {
-        titulo: inputTitulo.value,
-        descricao: inputDescricao.value,
-        imagem1: imagem1.files[0],
-        imagem2: imagem2.files[0],
-        imagem3: imagem3.files[0]
-    };
 
-    // Armazenando no array
-    denuncias.unshift(denuncia);
+    if (inputDescricao.value === '' || inputTitulo.value === '' || imagem1 ==='' ||imagem2===""||imagem3==='') {
+        alert('Preencha todos os campos. Não deixe nenhum vazio!')
 
-    // Limpar os campos de input
-    inputTitulo.value = '';
-    inputDescricao.value = '';
-    imagem1.value = '';
-    imagem2.value = '';
-    imagem3.value = '';
+    } else {
 
-    // Remover a imagem de preview
-    const preview = document.querySelector('#preview-image');
-    if (preview) {
-        preview.remove();
+        //Pegar o que o usuário digitou
+        let denuncia = {
+            titulo: inputTitulo.value,
+            descricao: inputDescricao.value,
+            imagem1: imagem1.files[0],
+            imagem2: imagem2.files[0],
+            imagem3: imagem3.files[0]
+        };
+    
+        // Armazenando no array
+        denuncias.unshift(denuncia);
+    
+        // Limpar os campos de input
+        inputTitulo.value = '';
+        inputDescricao.value = '';
+        imagem1.value = '';
+        imagem2.value = '';
+        imagem3.value = '';
+    
+        // Remover a imagem de preview
+        const preview = document.querySelector('#preview-image');
+        if (preview) {
+            preview.remove();
+        }
+    
+        // Atualizar o DOM
+        renderizarNaTela();
     }
 
-    // Atualizar o DOM
-    renderizarNaTela();
 }
+function proximaImagem() {
+    let i = 1;
+    document.getElementById('radio1').checked = true;
 
+    setInterval(function() {
+        i++;
+        if (i > 3) {
+            i = 1;
+        }
+        document.getElementById('radio' + i).checked = true;
+    }, 3000);
+}
 function renderizarNaTela() {
     listaDenuncias.innerHTML = "";
 
@@ -86,15 +105,44 @@ function renderizarNaTela() {
         novaDenuncia.innerHTML = `
             <h1>${denuncia.titulo}</h1>
             <h3>${denuncia.descricao}</h3>
-            <img src="${imageUrl1}" width="700" height="500">
-            <img src="${imageUrl2}" width="700" height="500">
-            <img src="${imageUrl3}" width="700" height="500">
+            <div class="slider">
+                <div class="slides">
+                    <input type="radio" name="radio-btn" id="radio1">
+                    <input type="radio" name="radio-btn" id="radio2">
+                    <input type="radio" name="radio-btn" id="radio3">
+                    
+                    <div class="slide first">
+                        <img src="${imageUrl1}">
+                    </div>
+                    <div class="slide">
+                        <img src="${imageUrl2}">
+                    </div>
+                        
+                    <div class="slide">
+                        <img src="${imageUrl3}">
+                    </div>
+
+                    <div class="autoNavegacao">
+                        <div class="auto-btn1"></div>
+                        <div class="auto-btn2"></div>
+                        <div class="auto-btn3"></div>
+                    </div>
+
+                </div>
+                <div class="manual-navigation">
+                    <label for="radio1" class="manual-btn"></label>
+                    <label for="radio2" class="manual-btn btn_meio"></label>
+                    <label for="radio3" class="manual-btn"></label>
+                </div>
+            </div>
             <button onclick="editarDenuncia(${denuncias.indexOf(denuncia)})"> Editar </button>
             <button onclick="apagarDenuncia(${denuncias.indexOf(denuncia)})"> Apagar </button>
+            <p>Momento do post:</p>
             <p>${date}</p>`;
 
         listaDenuncias.append(novaDenuncia);
     });
+    proximaImagem();
 }
 
 function editarDenuncia(idDenuncia) {
