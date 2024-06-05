@@ -9,8 +9,10 @@
 </head>
 <body>
     <header>
+
         <a href="../index.html" class="cabecalho__titulo"><h1>Oceano Protegido</h1></a>
         
+
     </header>
 
     <section id="alerta">
@@ -19,39 +21,43 @@
         </div>
         <div>
             <ul class="alerta__inputs">
-                <li> <h2>Digite um título para sua denúncia: </h2>
-                    <input type="text" id="tituloDenuncia" placeholder="Qual será o título de sua denuncia?">
+                <li>
+                    <h2>Digite um título para sua denúncia: </h2>
+                    <input type="text" id="tituloDenuncia" placeholder="Qual será o título de sua denúncia?">
                 </li>
                 <li>
                     <h2>Coloque uma descrição para sua denúncia: </h2>
                     <input type="text" id="descricaoDenuncia"  placeholder="Coloque uma descrição para sua denúncia">
                 </li>
-                
                 <li>
+
                     <h2 id="h2Imagem" >Coloque aqui as imagens da denúncia: </h2>
                     <h4 class="texto__imagem">(As três imagens são obrigatórias)</h4>
                     <input type="file" name="file" id="imagemDenuncia1"> 
                     <input type="file" name="file" id="imagemDenuncia2">
                     <input type="file" name="file" id="imagemDenuncia3"> 
+
                 </li>
             </ul>
-            <button id="btnCriar">Criar Denuncia</button>
+            <button id="btnCriar">Criar Denúncia</button>
         </div>
-        
         <div>
             <ul id="listaDenuncias"></ul>
         </div>
-        
-        
-        
     </section>
-    <section id="alertas__anteriores">
 
-        </section>
-        <footer>
+    <section id="alertas__anteriores">
+        <!-- Seção vazia reservada para alertas anteriores -->
+    </section>
+
+    <footer>
         <h2>Contatos: </h2>
-        <p>email: oceanoprotegido@gmail.com</p>
-        <p>instagram: <a href="" class="rodape__texto">Oceano Protegido</a></p> 
+
+
+
+        <p>Email: <a href="mailto:oceanoprotegido@gmail.com">oceanoprotegido@gmail.com</a></p>
+        <p>Instagram: <a href="https://www.instagram.com/oceanoprotegido" target="_blank"  class="rodape__texto">Oceano Protegido</a></p>
+
         <p>© 2024 Global Solution FIAP. Todos os direitos reservados.</p>  
     </footer>
     <script src="../scripts/scriptDenuncia.js"></script>
