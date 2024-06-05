@@ -45,49 +45,54 @@ btnCriar.addEventListener('click', function (infosDoEvento) {
 window.onload = renderizarNaTela;
 
 function criarDenuncia() {
-    //Pegar o que o usuário digitou
-    let denuncia = {
-        titulo: inputTitulo.value,
-        descricao: inputDescricao.value,
-        imagem1: imagem1.files[0],
-        imagem2: imagem2.files[0],
-        imagem3: imagem3.files[0]
-    };
 
-    // Armazenando no array
-    denuncias.unshift(denuncia);
+    if (inputDescricao.value === '' || inputTitulo.value === '' || imagem1 ==='' ||imagem2===""||imagem3==='') {
+        alert('Preencha todos os campos. Não deixe nenhum vazio!')
 
-    // Limpar os campos de input
-    inputTitulo.value = '';
-    inputDescricao.value = '';
-    imagem1.value = '';
-    imagem2.value = '';
-    imagem3.value = '';
+    } else {
 
-    // Remover a imagem de preview
-    const preview = document.querySelector('#preview-image');
-    if (preview) {
-        preview.remove();
+        //Pegar o que o usuário digitou
+        let denuncia = {
+            titulo: inputTitulo.value,
+            descricao: inputDescricao.value,
+            imagem1: imagem1.files[0],
+            imagem2: imagem2.files[0],
+            imagem3: imagem3.files[0]
+        };
+    
+        // Armazenando no array
+        denuncias.unshift(denuncia);
+    
+        // Limpar os campos de input
+        inputTitulo.value = '';
+        inputDescricao.value = '';
+        imagem1.value = '';
+        imagem2.value = '';
+        imagem3.value = '';
+    
+        // Remover a imagem de preview
+        const preview = document.querySelector('#preview-image');
+        if (preview) {
+            preview.remove();
+        }
+    
+        // Atualizar o DOM
+        renderizarNaTela();
     }
 
-    // Atualizar o DOM
-    renderizarNaTela();
-}/*
-let i = 1;
-document.getElementById("radio1").checked = true;
-
-setInterval( function(){
-    proximaImagem();
-
-}), 5000;
-function proximaImagem(){
-    i++;
-    if(i>3){
-        i = 1;
-    }
-    document.getElementById("radio"+count).checked = true;
 }
-*/
+function proximaImagem() {
+    let i = 1;
+    document.getElementById('radio1').checked = true;
+
+    setInterval(function() {
+        i++;
+        if (i > 3) {
+            i = 1;
+        }
+        document.getElementById('radio' + i).checked = true;
+    }, 3000);
+}
 function renderizarNaTela() {
     listaDenuncias.innerHTML = "";
 
@@ -112,9 +117,9 @@ function renderizarNaTela() {
                     <div class="slide">
                         <img src="${imageUrl2}">
                     </div>
-                        <img src="${imageUrl3}">
+                        
                     <div class="slide">
-
+                        <img src="${imageUrl3}">
                     </div>
 
                     <div class="autoNavegacao">
@@ -125,9 +130,9 @@ function renderizarNaTela() {
 
                 </div>
                 <div class="manual-navigation">
-                    <label for="radio1"></label>
-                    <label for="radio2"></label>
-                    <label for="radio3"></label>
+                    <label for="radio1" class="manual-btn"></label>
+                    <label for="radio2" class="manual-btn btn_meio"></label>
+                    <label for="radio3" class="manual-btn"></label>
                 </div>
             </div>
             <button onclick="editarDenuncia(${denuncias.indexOf(denuncia)})"> Editar </button>
@@ -137,6 +142,7 @@ function renderizarNaTela() {
 
         listaDenuncias.append(novaDenuncia);
     });
+    proximaImagem();
 }
 
 function editarDenuncia(idDenuncia) {

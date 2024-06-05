@@ -14,10 +14,10 @@ const inputLoginSenha = document.querySelector('#loginSenha');
 
 const contas = [
     {
-        nome: 'David',
+        nome: 'teste',
         cpf: 1234,
-        email: 'david@gmail.com',
-        senha: 'david',
+        email: 'teste@gmail.com',
+        senha: 'teste',
     }
 ];
 

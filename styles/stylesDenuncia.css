@@ -15,6 +15,9 @@ header {
     justify-content: space-around;
     
 }
+.alerta__inputs, #listaDenuncias {
+    list-style: none;
+}
 
 .slider{
     margin: 0 auto;
@@ -26,6 +29,7 @@ header {
     width: 400%;
     height: 400px;
     display: flex;
+    transition: margin-left 1s;
 }
 .slides input {
     display: none;
@@ -36,16 +40,27 @@ header {
 }
 .slide img {
     width: 800px;
+    height: 400px;
 }
 .manual-navigation{
-    position: absolute;
+
     width: 800px;
     margin-top: -40px;
+    padding-right: 30px;
     display: flex;
     justify-content: center;
 }
-.manual-btn:not(:last-child){
-    margin-right: 40px;
+.btn_meio {
+    margin-left: 42px;
+    margin-right: 42px;
+}
+.manual-btn{
+    position: relative;
+    width: 10px;
+    height: 10px;
+    border: 1px solid #20a6ff;
+    border-radius: 50px;
+    cursor: pointer;
 }
 .manual-btn:hover{
     background-color: #ffffff;
@@ -54,10 +69,13 @@ header {
     margin-left: 0;
 }
 #radio2:checked ~ .first{
-    margin-left: -40%;
+    margin-left: -25%;
 }
 #radio3:checked ~ .first{
-    margin-left: -80%;
+    margin-left: -50%;
+}
+#radio4:checked ~ .first{
+    margin-left: -75%;
 }
 .autoNavegacao div{
     border: 2px solid #20a6ff;
@@ -85,6 +103,7 @@ header {
 #radio3:checked ~ .autoNavegacao .auto-btn3{
     background-color: #ffffff;
 }
+
 
 footer {
     background: #005fa3; 
