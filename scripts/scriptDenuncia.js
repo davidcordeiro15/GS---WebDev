@@ -72,8 +72,22 @@ function criarDenuncia() {
 
     // Atualizar o DOM
     renderizarNaTela();
-}
+}/*
+let i = 1;
+document.getElementById("radio1").checked = true;
 
+setInterval( function(){
+    proximaImagem();
+
+}), 5000;
+function proximaImagem(){
+    i++;
+    if(i>3){
+        i = 1;
+    }
+    document.getElementById("radio"+count).checked = true;
+}
+*/
 function renderizarNaTela() {
     listaDenuncias.innerHTML = "";
 
@@ -86,11 +100,39 @@ function renderizarNaTela() {
         novaDenuncia.innerHTML = `
             <h1>${denuncia.titulo}</h1>
             <h3>${denuncia.descricao}</h3>
-            <img src="${imageUrl1}" width="700" height="500">
-            <img src="${imageUrl2}" width="700" height="500">
-            <img src="${imageUrl3}" width="700" height="500">
+            <div class="slider">
+                <div class="slides">
+                    <input type="radio" name="radio-btn" id="radio1">
+                    <input type="radio" name="radio-btn" id="radio2">
+                    <input type="radio" name="radio-btn" id="radio3">
+                    
+                    <div class="slide first">
+                        <img src="${imageUrl1}">
+                    </div>
+                    <div class="slide">
+                        <img src="${imageUrl2}">
+                    </div>
+                        <img src="${imageUrl3}">
+                    <div class="slide">
+
+                    </div>
+
+                    <div class="autoNavegacao">
+                        <div class="auto-btn1"></div>
+                        <div class="auto-btn2"></div>
+                        <div class="auto-btn3"></div>
+                    </div>
+
+                </div>
+                <div class="manual-navigation">
+                    <label for="radio1"></label>
+                    <label for="radio2"></label>
+                    <label for="radio3"></label>
+                </div>
+            </div>
             <button onclick="editarDenuncia(${denuncias.indexOf(denuncia)})"> Editar </button>
             <button onclick="apagarDenuncia(${denuncias.indexOf(denuncia)})"> Apagar </button>
+            <p>Momento do post:</p>
             <p>${date}</p>`;
 
         listaDenuncias.append(novaDenuncia);
