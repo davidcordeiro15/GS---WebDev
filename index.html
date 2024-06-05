@@ -14,14 +14,16 @@
     </header>
 
     <section>
-        <h1>Cadastre-se ou faça login, para criar uma denúncia!</h1>
+        <h1 >Cadastre-se ou faça login, para criar uma denúncia!</h1>
         <form >
             <ul id="listaCadastro">
-                <li><input id="cadastroNome" type="text" placeholder="Digite seu nome:"></li>
-                <li><input id="cadastroEmail" type="email" placeholder="Digite seu email:"></li>
-                <li><input id="cadastroCpf" type="text" placeholder="Digite seu CPF:"></li>
-                <li><input id="cadastroSenha" type="text" placeholder="Digite sua senha: "></li>
-                <li><input id="cadastroCheck" type="checkbox">Declaro sempre fazer denúncias verdadeiras e que para qualquer denúncia falsa, medidas judiciais serão tomadas contra o autor, mediante o artigo 340 do Código Penal</li>
+                <div class="cadastro__elementos">
+                    <li><input id="cadastroNome" type="text" placeholder="Digite seu nome:"></li>
+                    <li><input id="cadastroEmail" type="email" placeholder="Digite seu email:"></li>
+                    <li><input id="cadastroCpf" type="text" placeholder="Digite seu CPF:"></li>
+                    <li><input id="cadastroSenha" type="text" placeholder="Digite sua senha: "></li>
+                </div>
+                <li ><input id="cadastroCheck" class="checkbox" type="checkbox" ><p class="texto__check">Declaro sempre fazer denúncias verdadeiras e que para qualquer denúncia falsa, medidas judiciais serão tomadas contra o autor, mediante o artigo 340 do Código Penal</p></li>
             </ul>
             <button id="btnCriar" >Criar Conta</button>
         </form>
@@ -30,7 +32,7 @@
     <section id="fazerLogin">
         <h1>Faça seu login!</h1>
         <form >
-            <ul>
+            <ul class="lista__login">
                 <li><input id="loginEmail" type="email" placeholder="Digite seu email:"></li>
                 <li><input id="loginSenha" type="text" placeholder="Digite sua senha: "></li>
             </ul>
@@ -41,10 +43,11 @@
     <footer>
         <h2>Contatos: </h2>
         <p>email: oceanoprotegido@gmail.com</p>
-        <p>instagram: <a href="">Oceano Protegido</a></p> 
+        <p>instagram: <a href="" class="cabecalho__texto">Oceano Protegido</a></p> 
         <p>© 2024 Global Solution FIAP. Todos os direitos reservados.</p>  
     </footer>
     <script src="scripts/scriptCadastro.js"></script>   
 </body>
 
 </html> 
+
