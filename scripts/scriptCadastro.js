@@ -139,7 +139,7 @@ btnLogin.addEventListener('click', function(logar) {
             alert('Login realizado!');
 
             //entrar na pagina de denuncia após logar 
-            window.location = "../pages/denuncia.html";
+            window.location = "https://davidcordeiro15.github.io/pages/denuncia.html";
             break;
         } else {
             i++;
