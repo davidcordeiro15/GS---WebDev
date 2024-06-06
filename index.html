@@ -6,12 +6,48 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles/styles.css">
     <title>Oceano Protegido</title>
+
 </head>
 <body>
+    <style type="text/css">
+        .manual-navigation{
+            width: 800px;
+            margin-top: -40px;
+            padding-right: 30px;
+            display: flex;
+            justify-content: center;
+        }
+        .btn_meio {
+            margin-left: 42px;
+            margin-right: 42px;
+        }
+        .manual-btn{
+            position: relative;
+            width: 10px;
+            height: 10px;
+            border: 1px solid #20a6ff;
+            border-radius: 50px;
+            cursor: pointer;
+        }
+        .manual-btn:hover{
+            background-color: #ffffff;
+        }
+        #radio1:checked ~ .first{
+            margin-left: 0;
+        }
+        #radio2:checked ~ .first{
+            margin-left: -25%;
+        }
+        #radio3:checked ~ .first{
+            margin-left: -50%;
+        }
+        #radio4:checked ~ .first{
+            margin-left: -75%;
+        }
+    </style>
     <header>
         <h1>Oceano Protegido</h1>
     </header>
-
 
     <section>
         <h1 >Cadastre-se ou faça login, para criar uma denúncia!</h1>
@@ -50,3 +86,4 @@
 </body>
 
 </html> 
+

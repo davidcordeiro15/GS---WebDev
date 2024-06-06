@@ -1,4 +1,4 @@
-//variavies necessárias para criar uma denúncia
+// Variáveis necessárias para criar uma denúncia
 const imagem1 = document.querySelector('#imagemDenuncia1');
 const imagem2 = document.querySelector('#imagemDenuncia2');
 const imagem3 = document.querySelector('#imagemDenuncia3');
@@ -8,15 +8,15 @@ const inputDescricao = document.querySelector('#descricaoDenuncia');
 const listaDenuncias = document.querySelector('#listaDenuncias');
 const btnCriar = document.querySelector('#btnCriar');
 
-//Criando uma constante para armazenar a data da postagem
+// Criando uma constante para armazenar a data da postagem
 const date = new Date();
 
-//Criando a lista de denúncias
+// Criando a lista de denúncias
 const denuncias = [];
 
-//Função necessária para criar e mostrar um preview da imagem selecionada pelo usuario
+// Função necessária para criar e mostrar um preview da imagem selecionada pelo usuário
 function criaImagem(imagem) {
-    //Evento de seleção da imagem e preview
+    // Evento de seleção da imagem e preview
     imagem.addEventListener('change', event => {
         const preview = document.querySelector('#preview-image');
 
@@ -39,36 +39,34 @@ function criaImagem(imagem) {
     });
 }
 
-//Criando as imagens
+// Criando as imagens
 criaImagem(imagem1);
 criaImagem(imagem2);
 criaImagem(imagem3);
 
-//Evento necessário para criar uma denúncia nova
+// Evento necessário para criar uma denúncia nova
 btnCriar.addEventListener('click', function (infosDoEvento) {
     infosDoEvento.preventDefault();
     criarDenuncia();
 });
 
-
-//Função para criar denuncia
+// Função para criar denúncia
 function criarDenuncia() {
-    //Comparação necessária para verificar se os campos estão vazios, ou não
-    if (inputDescricao.value === '' || inputTitulo.value === '' || imagem1 ==='' ||imagem2===""||imagem3==='') {
-        alert('Preencha todos os campos. Não deixe nenhum vazio!')
-
+    // Comparação necessária para verificar se os campos estão vazios ou não
+    if (inputDescricao.value === '' || inputTitulo.value === '' || imagem1.value === '' || imagem2.value === '' || imagem3.value === '') {
+        alert('Preencha todos os campos. Não deixe nenhum vazio!');
     } else {
-
-        //Pega o que o usuário digitou e transforma em uma variável
+        // Pega o que o usuário digitou e transforma em uma variável
         let denuncia = {
             titulo: inputTitulo.value,
             descricao: inputDescricao.value,
             imagem1: imagem1.files[0],
             imagem2: imagem2.files[0],
-            imagem3: imagem3.files[0]
+            imagem3: imagem3.files[0],
+            date: new Date()
         };
     
-        // Armazenando no array "denuncias" a variável com as informações da nova denuncia
+        // Armazenando no array "denuncias" a variável com as informações da nova denúncia
         denuncias.unshift(denuncia);
     
         // Limpar os campos de input
@@ -87,40 +85,61 @@ function criarDenuncia() {
         // Atualizar o DOM
         renderizarNaTela();
     }
-
 }
 
-//Função necessária para rodar as imagens no carrossel, que será criado posteriormente
-function proximaImagem() {
-    let i = 1;
-    document.getElementById('radio1').checked = true;
-    //Criando a animação do carrossel
-    setInterval(function() {
-        i++;
-        if (i > 3) {
-            i = 1;
-        }
-        document.getElementById('radio' + i).checked = true;
-    }, 3000);
-}
-
-//Função para mostrar na tela a nova denúncia com o título, descrição e o carrossel com as imagens
+// Função para mostrar na tela a nova denúncia com o título, descrição e o carrossel com as imagens
 function renderizarNaTela() {
     listaDenuncias.innerHTML = "";
-    denuncias.forEach(denuncia => {
+    denuncias.forEach((denuncia, index) => {
         let novaDenuncia = document.createElement('li');
         let imageUrl1 = URL.createObjectURL(denuncia.imagem1);
         let imageUrl2 = URL.createObjectURL(denuncia.imagem2);
         let imageUrl3 = URL.createObjectURL(denuncia.imagem3);
 
+        //Id's necessários para movimentar cada imagem das denuncias
+        let idImagem = `denuncia${index}`;
+
         novaDenuncia.innerHTML = `
+            <style type="text/css">
+                .manual-navigation{
+                    width: 800px;
+                    margin-top: -40px;
+                    padding-right: 30px;
+                    display: flex;
+                    justify-content: center;
+                }
+                .btn_meio {
+                    margin-left: 42px;
+                    margin-right: 42px;
+                }
+                .manual-btn{
+                    position: relative;
+                    width: 10px;
+                    height: 10px;
+                    border: 1px solid #20a6ff;
+                    border-radius: 50px;
+                    cursor: pointer;
+                }
+                .manual-btn:hover{
+                    background-color: #ffffff;
+                }
+                #${idImagem}-radio1:checked ~ .first{
+                    margin-left: 0;
+                }
+                #${idImagem}-radio2:checked ~ .first{
+                    margin-left: -25%;
+                }
+                #${idImagem}-radio3:checked ~ .first{
+                    margin-left: -50%;
+                }
+            </style>
             <h1 class="texto__denuncia">${denuncia.titulo}</h1>
             <h3 class="texto__denuncia">${denuncia.descricao}</h3>
             <div class="slider">
                 <div class="slides">
-                    <input type="radio" name="radio-btn" id="radio1">
-                    <input type="radio" name="radio-btn" id="radio2">
-                    <input type="radio" name="radio-btn" id="radio3">
+                    <input type="radio" name="radio-btn-${idImagem}" id="${idImagem}-radio1">
+                    <input type="radio" name="radio-btn-${idImagem}" id="${idImagem}-radio2">
+                    <input type="radio" name="radio-btn-${idImagem}" id="${idImagem}-radio3">
                     
                     <div class="slide first">
                         <img src="${imageUrl1}">
@@ -141,22 +160,21 @@ function renderizarNaTela() {
 
                 </div>
                 <div class="manual-navigation">
-                    <label for="radio1" class="manual-btn"></label>
-                    <label for="radio2" class="manual-btn btn_meio"></label>
-                    <label for="radio3" class="manual-btn"></label>
+                    <label for="${idImagem}-radio1" class="manual-btn"></label>
+                    <label for="${idImagem}-radio2" class="manual-btn btn_meio"></label>
+                    <label for="${idImagem}-radio3" class="manual-btn"></label>
                 </div>
             </div>
-            <button class="btn__edicao" onclick="editarDenuncia(${denuncias.indexOf(denuncia)})"> Editar </button>
-            <button class="btn__edicao" onclick="apagarDenuncia(${denuncias.indexOf(denuncia)})"> Apagar </button>
-            <p class="texto__denuncia__data" >Momento do post:</p>
-            <p class="texto__denuncia__data" >${date}</p>`;
+            <button class="btn__edicao" onclick="editarDenuncia(${index})"> Editar </button>
+            <button class="btn__edicao" onclick="apagarDenuncia(${index})"> Apagar </button>
+            <p class="texto__denuncia__data">Momento do post:</p>
+            <p class="texto__denuncia__data">${denuncia.date}</p>`;
 
         listaDenuncias.append(novaDenuncia);
     });
-    proximaImagem();
 }
 
-//função para editar o titulo e a descrição da denuncia
+// Função para editar o título e a descrição da denúncia
 function editarDenuncia(idDenuncia) {
     // Pegar as informações que a pessoa quer inserir
     let titulomodificado = prompt('Digite o novo título', denuncias[idDenuncia].titulo);
@@ -170,7 +188,7 @@ function editarDenuncia(idDenuncia) {
     renderizarNaTela();
 }
 
-//Função para apagar a denuncia
+// Função para apagar a denúncia
 function apagarDenuncia(idDenuncia) {
     // Apagar a denúncia (o segundo número é a quantidade de elementos que será deletado)
     denuncias.splice(idDenuncia, 1);
@@ -178,5 +196,3 @@ function apagarDenuncia(idDenuncia) {
     // Atualiza a tela
     renderizarNaTela();
 }
-
-
