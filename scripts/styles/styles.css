@@ -1,0 +1,115 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap');
+
+body {
+    font-family: "Oswald", sans-serif;;
+    margin: 0;
+    padding: 0;
+    background-color: #cee7fa; /* Cor de fundo clara */
+    text-align: center; /* Centralizar conteúdo */
+}
+
+header {
+    background: #005fa3; /* Azul escuro */
+    color: #ffffff; /* Branco */
+    padding: 1em 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Espaço igual entre os itens */
+    padding: 1em 2em; /* Aumentar padding para mais espaçamento */
+}
+
+::placeholder{
+    text-align: center;
+}
+
+.cadastro__elementos{
+    /* Adicionei uma estilização básica para .cadastro__elementos */
+    display: flex;
+    margin: 2em 0 2em 0;
+    justify-content: center;
+    gap: 0.5em; /* Espaçamento entre os elementos */
+    
+}
+#cadastroNome, #cadastroEmail, #cadastroCpf, #cadastroSenha, #loginEmail, #loginSenha{
+    border: 2px solid #005fa3;
+    border-radius: 30px;
+    padding: 0.5em;
+    font-size: 16px;
+}
+
+.checkbox{
+    border: 1px solid red;
+    width: 20px;
+    height: 20px;
+}
+.texto__check {
+    color: red;
+    font-size: 20px;
+    font-weight: 40px;
+}
+.lista__login, #listaCadastro{
+    list-style: none;
+    margin: 0 2.5em 1em 0;
+}
+
+#loginEmail{
+    margin-bottom: 1em;
+}
+#cadastroCheck{
+    margin-right: 1em;
+    
+}
+#btnCriar, #btnLogin{
+    border: 2px solid #005fa3;
+    border-radius: 16px;
+    padding: 1em;
+    background-color: #005fa3;
+    font-size: 16px;
+    font-weight: 20px;
+    margin-bottom: 1em;
+    color: #ffffff;
+}
+#btnCriar:hover, #btnLogin:hover{
+    background-color: #1b76b8;
+    cursor: pointer;
+}
+.cabecalho__texto{
+    text-decoration: none;
+    color: black;
+}
+.cabecalho__texto:hover{
+    color: #38729b;
+}
+.texto__denuncia{
+    margin-left: 5em;
+}
+footer {
+    background: #005fa3; 
+    color: #ffffff; 
+    text-align: center;
+    padding: 0.7em 0;
+}
+
+footer ul {
+    list-style: none;
+    padding: 0;
+    margin: 0; /* Remove a margem padrão */
+    display: flex;
+    justify-content: center; /* Centraliza os itens do footer */
+    gap: 1em; /* Espaçamento entre os itens */
+}
+
+footer ul li {
+    display: inline;
+}
+
+footer ul li a {
+    color: #ffffff; 
+    text-decoration: none;
+    transition: text-decoration 0.3s ease; /* Adiciona transição suave */
+}
+
+footer ul li a:hover {
+    text-decoration: underline;
+}
+
