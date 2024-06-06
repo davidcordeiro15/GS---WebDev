@@ -4,7 +4,7 @@ body {
     font-family: "Oswald", sans-serif;;
     margin: 0;
     padding: 0;
-    background-color: #ffffff; /* Cor de fundo clara */
+    background-color: #cee7fa; /* Cor de fundo clara */
  /* Centralizar conteúdo */
     text-align: center;
 }
@@ -15,10 +15,10 @@ header {
     padding: 1em 0;
     display: flex;
 
-
     justify-content: space-around;
     
 }
+
 ::placeholder{
     text-align: center;
 }
@@ -39,6 +39,10 @@ header {
     font-weight: 20px;
     margin-bottom: 1em;
     color: #ffffff;
+}
+#imagemDenuncia1:hover, #imagemDenuncia2:hover, #imagemDenuncia3:hover{
+    cursor: pointer;
+    background-color: #20a6ff';
 }
 .texto__imagem{
     color: red;
@@ -61,115 +65,64 @@ header {
     cursor: pointer;
     background-color: #20a6ff;
 }
-
-    align-items: center;
-    justify-content: space-between; /* Espaço entre os itens */
-}
-
-
 .alerta__inputs, #listaDenuncias {
     list-style: none;
-    padding: 0;
-    margin: 0;
 }
 
-.slider {
+.slider{
     margin: 0 auto;
     width: 800px;
     height: 400px;
     overflow: hidden;
-    border: 2px solid #005fa3; /* Adiciona borda */
-    border-radius: 10px; /* Borda arredondada */
 }
-
-.slides {
+.slides{
     width: 400%;
-    height: 100%; /* Mantém a altura definida no slider */
+    height: 400px;
     display: flex;
-    transition: margin-left 1s ease-in-out; /* Transição suavizada */
+    transition: margin-left 1s;
 }
-
 .slides input {
     display: none;
 }
-
 .slide {
     width: 25%;
     position: relative;
 }
-
 .slide img {
     width: 100%;
     height: 100%;
-
-    object-fit: cover;
-
 }
 
-.manual-navigation {
-    width: 800px;
-    margin-top: -40px;
-    display: flex;
-    justify-content: center;
-}
-
-.manual-btn {
-    width: 10px;
-    height: 10px;
-    border: 1px solid #20a6ff;
-    border-radius: 50%;
+.autoNavegacao div{
+    border: 2px solid #20a6ff;
+    padding: 5px;
+    border-radius: 10px;
     cursor: pointer;
-    transition: background-color 0.3s;
+    transition: 1s;
 }
-
-.manual-btn:hover {
-    background-color: #20a6ff; /* Cor de fundo ao passar o mouse */
-}
-
-#radio1:checked ~ .first {
-    margin-left: 0;
-}
-
-#radio2:checked ~ .first {
-    margin-left: -25%;
-}
-
-#radio3:checked ~ .first {
-    margin-left: -50%;
-}
-
-#radio4:checked ~ .first {
-    margin-left: -75%;
-}
-
-.autoNavegacao {
+.autoNavegacao{
     position: absolute;
     width: 800px;
     margin-top: 360px;
     display: flex;
     justify-content: center;
 }
-
-.autoNavegacao div {
-    border: 2px solid #20a6ff;
-    padding: 5px;
-    border-radius: 50%; /* Bordas mais arredondadas */
-    cursor: pointer;
-    transition: background-color 0.3s, transform 0.3s;
+.autoNavegacao div:not(:last-child){
+    margin-right: 40px;
 }
-
-.autoNavegacao div:not(:last-child) {
-    margin-right: 10px; /* Menor espaço entre os itens */
+#radio1:checked ~ .autoNavegacao .auto-btn1{
+    background-color: #ffffff;
 }
-
-.autoNavegacao div:hover {
-    transform: scale(1.1);
+#radio2:checked ~ .autoNavegacao .auto-btn2{
+    background-color: #ffffff;
+}
+#radio3:checked ~ .autoNavegacao .auto-btn3{
+    background-color: #ffffff;
 }
 .texto__denuncia{
     margin-right: 80%;
     margin-left: 20%;
 }
-
 
 .btn__edicao{
     justify-content: center;
@@ -186,18 +139,11 @@ header {
 }
 .rodape__texto:hover{
     color: #20a6ff;
-
-#radio1:checked ~ .autoNavegacao .auto-btn1,
-#radio2:checked ~ .autoNavegacao .auto-btn2,
-#radio3:checked ~ .autoNavegacao .auto-btn3,
-#radio4:checked ~ .autoNavegacao .auto-btn4 {
-    background-color: #20a6ff; /* Cor de fundo ativa */
-
 }
 
 footer {
-    background: #005fa3;
-    color: #ffffff;
+    background: #005fa3; 
+    color: #ffffff; 
     text-align: center;
     padding: 1em 0;
 }
@@ -205,7 +151,6 @@ footer {
 footer ul {
     list-style: none;
     padding: 0;
-    margin: 0;
 }
 
 footer ul li {
@@ -214,11 +159,11 @@ footer ul li {
 }
 
 footer ul li a {
-    color: #ffffff;
+    color: #ffffff; 
     text-decoration: none;
-    transition: color 0.3s; /* Suaviza a transição de cor */
 }
 
 footer ul li a:hover {
-    color: #20a6ff; /* Cor de destaque ao passar o mouse */
+    text-decoration: underline;
 }
+
