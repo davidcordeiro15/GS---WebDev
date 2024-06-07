@@ -8,7 +8,7 @@ O projeto **Oceano Protegido** é uma plataforma para cadastro e login de usuár
 ![Screenshot_1](https://github.com/davidcordeiro15/GS---WebDev/assets/161903325/8ccba092-c13f-4379-b792-043233164cce)
 
 ## Página de Denúncias
-![Screenshot_2](https://github.com/davidcordeiro15/GS---WebDev/assets/161903325/853f3fdf-f4b3-44a8-a70a-8e2e43d5a15d)
+![137e975b-3fdb-4987-b7f7-db6f13cf7741](https://github.com/davidcordeiro15/GS---WebDev/assets/161903325/9fe8e61e-b9b4-446e-aac6-0eb1688a28ab)
 
 ## Descrição
 
@@ -31,6 +31,7 @@ Este projeto visa conscientizar e envolver a comunidade na proteção dos oceano
 2. **Login de Usuários**: 
    - Email
    - Senha
+
 
 3. **Formulário de Denúncia**: 
    - Título da Denúncia
